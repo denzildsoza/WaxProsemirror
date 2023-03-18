@@ -5,6 +5,11 @@ import { Wax } from 'wax-prosemirror-core';
 import { EditoriaLayout, EditoriaMobileLayout } from './layout';
 import { config, configMobile } from './config';
 import { demo } from './demo';
+import { dummy1 } from './dummy1';
+import { dummy2 } from './dummy2';
+import { dummy3 } from './dummy3';
+import { dummy4 } from './dummy4';
+import { dummy5 } from './dummy5';
 import { debounce } from 'lodash';
 
 const renderImage = file => {
@@ -26,7 +31,7 @@ const user = {
   username: 'admin',
 };
 
-const Editoria = () => {
+const Editoria = props => {
   const [width] = useWindowSize();
 
   let layout = EditoriaLayout;
@@ -48,7 +53,7 @@ const Editoria = () => {
           autoFocus
           placeholder="Type Something..."
           fileUpload={file => renderImage(file)}
-          value={demo}
+          value={props.value}
           // readonly
           layout={layout}
           // onChange={debounce(source => {

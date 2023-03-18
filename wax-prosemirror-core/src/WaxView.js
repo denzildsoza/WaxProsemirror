@@ -100,10 +100,10 @@ export default props => {
         if (debug) applyDevTools(view);
         if (autoFocus)
           setTimeout(() => {
-            view.focus();
+            view?.focus();
           }, 1000);
 
-        return () => view.destroy();
+        return () => view?.destroy();
       }
       editorRef.current = node;
     },

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import styled from 'styled-components';
 import { createGlobalStyle } from 'styled-components';
-
+import WaxChapters from './waxChapters';
 import Editoria from './Editoria/Editoria';
 import HHMI from './HHMI/HHMI';
 
@@ -20,7 +20,8 @@ const GlobalStyle = createGlobalStyle`
 
 const ProjectContainer = styled.div`
   display: flex;
-  height: calc(100% - 55px);
+  height: 100%;
+  width: 100%;
 `;
 
 const ChooseProject = styled.div`
@@ -54,26 +55,11 @@ const Editors = () => {
       case 'ncbi':
         break;
       default:
-        return <Editoria />;
+        return <WaxChapters />;
     }
   };
 
-  return (
-    <>
-      <GlobalStyle />
-      <ChooseProject>
-        <Projects>
-          <span>Select Project:</span>
-          <ProjectButton onClick={() => setProject('editoria')}>
-            Editoria
-          </ProjectButton>
-          <ProjectButton onClick={() => setProject('hhmi')}>HHMI</ProjectButton>
-          {/* <ProjectButton onClick={() => setProject('ncbi')}>NCBI</ProjectButton> */}
-        </Projects>
-      </ChooseProject>
-      <ProjectContainer>{displayProject()}</ProjectContainer>
-    </>
-  );
+  return <>{displayProject()}</>;
 };
 
 export default Editors;
